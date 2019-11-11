@@ -1,6 +1,8 @@
 #include <stdio.h> 
 #include <stdlib.h> 
-#include "node.h"
+#include <string.h>
+#include <ctype.h> 
+#include "list.h"
 
 
-Node** countFrequency(char* text);
+List* getFrequency(const char* text);

@@ -10,9 +10,11 @@ int main(void){
 
     const char* text = readFile();
     
-    printf(" %s \n" , text);
+    // printf(" %s \n" , text);
 
-    countFrequency(text);
+    List* frequency = getFrequency(text);
+
+    print(frequency);
 
     return 0;
 }

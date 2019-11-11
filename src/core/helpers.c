@@ -1,9 +1,20 @@
 #include "../include/helpers.h"
 
 
-Node** countFrequency(char* txt){
+List* getFrequency(const char* text){
 
 
+    List* frequencyList = createList();
 
+    int size = strlen(text);
+
+
+    for(int i = 0; i < size; i++){
+        if(text[i] != ' '){
+            insert(frequencyList, tolower(text[i]));
+        }
+    }
+
+    return frequencyList;
 
 }
