@@ -14,7 +14,7 @@ int main(void){
 
     List* frequency = getFrequency(text);
 
-    print(frequency);
+    printList(frequency);
 
     return 0;
 }

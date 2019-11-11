@@ -21,5 +21,6 @@ Node* createNode(char c);
 
 
 List* createList();
-void insert(List *l, char c);
-void print(List *l);
+void insertInList(List *l, char c);
+void printList(List *l);
+

@@ -11,7 +11,7 @@ List* getFrequency(const char* text){
 
     for(int i = 0; i < size; i++){
         if(text[i] != ' '){
-            insert(frequencyList, tolower(text[i]));
+            insertInList(frequencyList, tolower(text[i]));
         }
     }
 

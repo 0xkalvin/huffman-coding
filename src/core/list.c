@@ -27,7 +27,7 @@ List* createList(){
 }
 
 
-void insert(List *l, char c){
+void insertInList(List *l, char c){
     
     if(l->head == NULL){
         l->head = createNode(c);
@@ -49,7 +49,7 @@ void insert(List *l, char c){
     }
 }
 
-void print(List *l){
+void printList(List *l){
 
     Node* temp = l->head;
 
@@ -57,5 +57,4 @@ void print(List *l){
         printf(" %c -> %d \n", temp->letter, temp->frequency);
         temp = temp->next;
     }
-
 }
