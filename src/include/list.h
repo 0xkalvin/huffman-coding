@@ -1,14 +1,8 @@
+#ifndef LIST_H
+#define LIST_H
 #include <stdio.h> 
 #include <stdlib.h> 
-
-typedef struct Node {
-
-    int frequency;
-    char letter;
-    struct Node* next;
-
-} Node;
-
+#include "node.h"
 
 typedef struct List {
     Node* head;
@@ -17,10 +11,8 @@ typedef struct List {
 
 
 
-Node* createNode(char c);
-
-
 List* createList();
 void insertInList(List *l, char c);
 void printList(List *l);
 
+#endif

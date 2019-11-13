@@ -2,7 +2,9 @@
 #include <stdlib.h> 
 #include <string.h>
 #include <ctype.h> 
-#include "list.h"
+#include "tree.h"
+#include "node.h"
 
 
-List* getFrequency(const char* text);
+Node** getFrequency(const char* text);
+

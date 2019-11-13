@@ -4,17 +4,19 @@
 const char* readFile();
 
 
-
+/*  
+    https://www.geeksforgeeks.org/efficient-huffman-coding-for-sorted-input-greedy-algo-4/
+*/
 
 int main(void){
 
     const char* text = readFile();
-    
-    // printf(" %s \n" , text);
 
-    List* frequency = getFrequency(text);
+    Node** frequency = getFrequency(text);
 
-    printList(frequency);
+    for(int i = 0; i < 26; i++){
+        printf("%c -> %d \n", frequency[i]->letter, frequency[i]->frequency);
+    }
 
     return 0;
 }

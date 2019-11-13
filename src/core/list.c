@@ -1,20 +1,5 @@
 #include "../include/list.h"
 
-Node* createNode(char c){
-
-    Node* newNode = (Node*)malloc(sizeof(Node));
-
-    if(newNode == NULL)   return NULL;
-
-    newNode->letter = c;
-    newNode->frequency = 1;
-    newNode->next = NULL;
-
-    return newNode;
-
-}
-
-
 List* createList(){
 
     List* l = (List*)malloc(sizeof(List));
@@ -30,7 +15,8 @@ List* createList(){
 void insertInList(List *l, char c){
     
     if(l->head == NULL){
-        l->head = createNode(c);
+        l->head = createNode();
+        l->head->frequency++;
         return;
     }
     else{
@@ -44,7 +30,8 @@ void insertInList(List *l, char c){
             temp->frequency++;
         }
         else{
-            temp->next = createNode(c);
+            temp->next = createNode();
+            temp->next->frequency++;
         }
     }
 }

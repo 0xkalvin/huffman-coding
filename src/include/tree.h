@@ -1,23 +1,19 @@
+#ifndef TREE_H
+#define TREE_H
 #include <stdio.h> 
 #include <stdlib.h> 
-
-typedef struct TreeNode {
-
-    int frequency;
-    char letter;
-    struct TreeNode* next;
-
-} TreeNode;
-
+#include "node.h"
 
 typedef struct Tree {
-    TreeNode* root;
+    Node* root;
 
 } Tree;
 
 
 
-TreeNode* createNode(int frequency);
-Tree* createList();
-void setChar(TreeNode* n, char c);
-void setSubtrees(TreeNode* left, TreeNode* right);
+Tree* createTree();
+void setChar(Node* n, char c);
+void setSubtrees(Node* root,Node* left, Node* right);
+
+
+#endif
