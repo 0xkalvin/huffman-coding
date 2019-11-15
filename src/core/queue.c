@@ -36,3 +36,9 @@ int isEmpty(Queue* q){
     return q->front == -1;
 }
 
+Node* getFront(Queue* q){
+
+    if(isEmpty(q))  return NULL;
+
+    return q->array[q->front];
+}

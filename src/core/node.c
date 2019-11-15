@@ -13,3 +13,7 @@ Node* createNode(){
 
     return newNode;
 }
+
+int isLeaf(Node* n){
+    return n->left == NULL && n->right == NULL;
+}

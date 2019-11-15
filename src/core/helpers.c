@@ -5,7 +5,7 @@ int comparator(const void *a, const void *b)
     const Node* const * elem1 = a;
     const Node* const * elem2 = b;
 
-    return (*elem2)->frequency - (*elem1)->frequency; // Beware of overflow / underflow
+    return (*elem1)->frequency - (*elem2)->frequency; 
      
 }
 

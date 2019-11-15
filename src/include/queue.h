@@ -21,6 +21,7 @@ void enqueue(Queue* q, Node* n);
 void dequeue(Queue* q);
 int isFull(Queue* q);
 int isEmpty(Queue* q);
+Node* getFront(Queue* q);
 
 
 #endif

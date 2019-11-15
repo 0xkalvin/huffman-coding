@@ -16,6 +16,8 @@ typedef struct Node {
 
 
 Node* createNode();
+int isLeaf(Node* n);
+
 
 
 #endif
