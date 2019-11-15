@@ -11,17 +11,20 @@ typedef struct Queue {
     int front;
     int rear;
     Node** array;
-
+	
 } Queue;
 
 
 
 Queue* createQueue(int capacity);
 void enqueue(Queue* q, Node* n);
-void dequeue(Queue* q);
+Node* dequeue(Queue* q);
 int isFull(Queue* q);
 int isEmpty(Queue* q);
 Node* getFront(Queue* q);
+void printQueue(Queue* q);
+Node* minNode(Queue* q, Queue* z);
+int isSizedOne(Queue* q);
 
 
 #endif

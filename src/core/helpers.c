@@ -1,5 +1,6 @@
 #include "../include/helpers.h"
 
+/*  Método para ordenar vetor de Nodes de acordo com a váriavel counter, em ordem crescente */
 int comparator(const void *a, const void *b)
 {
     const Node* const * elem1 = a;
@@ -9,6 +10,9 @@ int comparator(const void *a, const void *b)
      
 }
 
+/*  Método para contar a frequência de cada caracter no texto informado.
+    Considerando apenas letras de A-Z, e salvando todas em lowercase.
+    Retorna o vetor ordenado pela frequência, em ordem crescente.    */
 Node **getFrequency(const char *text)
 {
 

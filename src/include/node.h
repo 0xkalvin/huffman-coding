@@ -9,7 +9,6 @@ typedef struct Node {
     int counter; 
     struct Node *left;
     struct Node *right; 
-    struct Node *next; 
     
 } Node; 
   

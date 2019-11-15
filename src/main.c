@@ -1,30 +1,44 @@
 #include "./include/helpers.h"
+#include <stdio.h>
+#include <stdlib.h>
 
+/*
 
-const char* readFile();
+KALVIN 31894666
+ROGER  31849571	
 
-
-/*  
-    https://www.geeksforgeeks.org/efficient-huffman-coding-for-sorted-input-greedy-algo-4/
 */
+
+const char* textFileToString();
+
 
 int main(void){
 
-    const char* text = readFile();
+    /*  Copia texto de um arquivo txt para uma string   */
+    const char* text = textFileToString();
 
+    /*  Conta a frequência de cada caracter no texto    */
     Node** frequency = getFrequency(text);
 
-    for(int i = 0; i < 26; i++){
-        printf("%c -> %d \n", frequency[i]->letter, frequency[i]->counter);
-    }
+    /*  Contrói a árvore de huffman */
+    Node* huffmanTree = createTree(frequency);
+
+    /*  Usa altura da árvore para saber quanto de memória precisa alocar para os códigos  */
+    int treeHeight = getHeight(huffmanTree);
+    int code[treeHeight];
+
+	printf("\n\tAlgoritmo de Huffman \n\n");
+	printf("Codificação sendo feita para o texto: \n\n%s \n\n", text);
+    
+    printf("Caractér    Frequência    código \n");
+    printHuffmanTable(huffmanTree, code, 0);
 
     return 0;
 }
 
-
-
-
-const char* readFile(){
+	
+/*  Método que captura texto de um arquivo txt e grava em uma string    */
+const char* textFileToString(){
     FILE* file = fopen("./data.txt","r");
     if(file == NULL)
     {

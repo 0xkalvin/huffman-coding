@@ -1,22 +1,89 @@
 #include "../include/tree.h"
 
+/*  Método que cria a árvore de huffman   */
+Node* createTree(Node** frequency){
 
-Tree* createTree(){
+    /* Nós auxiliares */
+    Node* left;
+    Node* right;
+    Node* parent;
 
-    Tree* newTree = (Tree*)malloc(sizeof(Tree));
+    /*  Cria duas filas
+        A primeira será usada para armazenar os nós em ordem crescente pela frequência 
+        A segunda será onde armazenaremos a árvore resultado em si */
+    Queue* firstQueue = createQueue(26);
+    Queue* secondQueue = createQueue(26);
 
-    if(newTree == NULL)    return NULL;
+    /*  Insere na primeira fila os nós com a frequência de cada letra em ordem crescente    */
+    for(int i = 0; i < 26; i++){
+        if(frequency[i]->counter > 0){
+            Node* current = createNode();
+            current->letter = frequency[i]->letter;
+            current->counter = frequency[i]->counter;
+            enqueue(firstQueue, current);
+        }
+    }
 
-    newTree->root = NULL;
+    /*  Enquanto a primeira fila não estiver vazia, monta a árvore de baixo para cima,
+        pegando os dois nós com menores frequências e construindo um nó pai para eles.   */
+    while(!(isEmpty(firstQueue) && isSizedOne(secondQueue))){
 
-    return newTree;
+        left = minNode(firstQueue, secondQueue);
+        right = minNode(firstQueue, secondQueue);
+
+        parent = createNode();
+        parent->left = left;
+        parent->right = right;
+        parent->counter = right->counter + left->counter;
+        enqueue(secondQueue, parent);
+
+    }
+
+    return dequeue(secondQueue);
+
 }
 
-void setChar(Node* n, char c){
-    n->letter = c;
+/*  Método que retorna a altura da árvore   */
+int getHeight(Node* tree){
+
+    if (tree == NULL)
+        return 0;
+    else
+    {
+        if (getHeight(tree->left) > getHeight(tree->right))
+            return 1 + getHeight(tree->left);
+        else
+            return 1 + getHeight(tree->right);
+    }
+
+
 }
 
-void setSubtrees(Node* root, Node* left, Node* right){
-    root->left = left;
-    root->right = right;
+/*  Método para printar códigos de Huffman.
+    Percorre a árvore, atribuindo 0 para esquerda e 1 para direita, 
+    salvando cada passo em um vetor `code`  */
+void printHuffmanTable(Node* tree, int code[], int position)
+{
+    if(tree->left != NULL){
+        code[position] = 0;
+        printHuffmanTable(tree->left, code, position + 1);
+    }
+
+    if(tree->right != NULL){
+        code[position] = 1;
+        printHuffmanTable(tree->right, code, position + 1);
+    }
+
+    if(isLeaf(tree)){
+        printf(" %c             ", tree->letter);
+        printf("%d           ", tree->counter);
+        
+        for(int i = 0; i < position; i++){
+            printf("%d", code[i]);
+        }
+        
+        printf("\n");
+    }
+
 }
+
