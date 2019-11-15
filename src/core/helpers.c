@@ -5,7 +5,7 @@ int comparator(const void *a, const void *b)
     const Node* const * elem1 = a;
     const Node* const * elem2 = b;
 
-    return (*elem1)->frequency - (*elem2)->frequency; 
+    return (*elem1)->counter - (*elem2)->counter; 
      
 }
 
@@ -23,9 +23,9 @@ Node **getFrequency(const char *text)
     {
         if (text[i] != ' ')
         {
-            int current = tolower(text[i]) - 97;
-            frequency[current]->frequency++;
-            frequency[current]->letter = tolower(text[i]);
+            int indexLetter = tolower(text[i]) - 97;
+            frequency[indexLetter]->counter++;
+            frequency[indexLetter]->letter = tolower(text[i]);
         }
     }
 

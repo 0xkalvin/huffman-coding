@@ -16,7 +16,7 @@ void insertInList(List *l, char c){
     
     if(l->head == NULL){
         l->head = createNode();
-        l->head->frequency++;
+        l->head->counter++;
         return;
     }
     else{
@@ -27,11 +27,11 @@ void insertInList(List *l, char c){
         }
 
         if(temp->letter == c){
-            temp->frequency++;
+            temp->counter++;
         }
         else{
             temp->next = createNode();
-            temp->next->frequency++;
+            temp->next->counter++;
         }
     }
 }
@@ -41,7 +41,7 @@ void printList(List *l){
     Node* temp = l->head;
 
     while(temp != NULL){
-        printf(" %c -> %d \n", temp->letter, temp->frequency);
+        printf(" %c -> %d \n", temp->letter, temp->counter);
         temp = temp->next;
     }
 }

@@ -6,7 +6,7 @@
 
 typedef struct Node { 
     char letter; 
-    int frequency; 
+    int counter; 
     struct Node *left;
     struct Node *right; 
     struct Node *next; 

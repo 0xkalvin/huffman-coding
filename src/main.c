@@ -15,7 +15,7 @@ int main(void){
     Node** frequency = getFrequency(text);
 
     for(int i = 0; i < 26; i++){
-        printf("%c -> %d \n", frequency[i]->letter, frequency[i]->frequency);
+        printf("%c -> %d \n", frequency[i]->letter, frequency[i]->counter);
     }
 
     return 0;
