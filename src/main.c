@@ -2,13 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-
-KALVIN 31894666
-ROGER  31849571	
-
-*/
-
 const char* textFileToString();
 
 

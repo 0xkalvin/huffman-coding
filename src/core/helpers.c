@@ -25,7 +25,7 @@ Node **getFrequency(const char *text)
 
     for (int i = 0; i < size; i++)
     {
-        if (text[i] != ' ')
+        if (text[i] >= 'a' && text[i] <= 'z')
         {
             int indexLetter = tolower(text[i]) - 97;
             frequency[indexLetter]->counter++;
